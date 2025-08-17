@@ -64,7 +64,6 @@ const ResearchCard = ({ paper }) => {
 
 export const Component = () => {
   return (
-    <div id="webcrumbs">
       <div className="min-h-screen bg-gray-50 flex flex-col">
         {/* Header Section */}
         {/* ... your unchanged header code ... */}
@@ -91,6 +90,5 @@ export const Component = () => {
         {/* Footer */}
         {/* ... your unchanged footer ... */}
       </div>
-    </div>
   );
 };

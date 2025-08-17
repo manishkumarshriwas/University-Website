@@ -1,43 +1,43 @@
+// src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useParams, useNavigate, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useParams } from "react-router-dom";
 
+// Navbar & Footer
 import { TopHeaderBar } from "./components/TopHeaderBar";
 import { MainNavBar } from "./components/MainNavBar";
 import { Footer } from "./components/Footer";
 
-
-
-
+// Pages
 import HomePage from "./pages/HomePage";
 import { AcademicPrograms } from "./pages/AcademicPrograms";
 import { AdmissionPage } from "./pages/AdmissionPage";
 import { AboutUniversity } from "./pages/AboutUniversity";
 import { StudentResources } from "./pages/StudentResources";
-
-import { Research } from './pages/Research';
-import { NewsAndEvents } from './pages/NewsAndEvents';
-import { ContactUs } from './pages/ContactUs';
+import { Research } from "./pages/Research";
+import { NewsAndEvents } from "./pages/NewsAndEvents";
+import { ContactUs } from "./pages/ContactUs";
 import { AdmissionDeadlines } from "./pages/AdmissionDeadlines";
 import { UpcomingEvents } from "./pages/UpcomingEvents";
-import { LatestNews } from "./pages/LatestNews";  
-import NewsArticlePage from "./pages/NewsArticlePage"; 
+import { LatestNews } from "./pages/LatestNews";
+import NewsArticlePage from "./pages/NewsArticlePage";
 import { article1 } from "./data/article1";
-import { StudentResource } from "./pages/StudentResource";  
-import { VirtualTour } from "./pages/VirtualTour";  
-import { Department } from "./departments/Department"; 
-import { ScienceDepartment } from "./departments/ScienceDepartment"; 
-import { Engineering } from "./departments/Engineering"; 
-import { Business } from "./departments/Business"; 
-import { Humanities } from "./departments/Humanities"; 
-import { Medicine } from "./departments/Medicine"; 
-import { Law } from "./departments/Law"; 
-import { ArtsAndScience } from "./departments/ArtsAndScience"; 
+import { StudentResource } from "./pages/StudentResource";
+import { VirtualTour } from "./pages/VirtualTour";
+import { Department } from "./departments/Department";
+import { ScienceDepartment } from "./departments/ScienceDepartment";
+import { Engineering } from "./departments/Engineering";
+import { Business } from "./departments/Business";
+import { Humanities } from "./departments/Humanities";
+import { Medicine } from "./departments/Medicine";
+import { Law } from "./departments/Law";
+import { ArtsAndScience } from "./departments/ArtsAndScience";
 import { ResearchPaperStructure } from "./pages/ResearchPaperStructure";
 import { ResearchPaper } from "./pages/ResearchPaper";
 import { ApplyPage } from "./pages/ApplyPage";
 import { ApplyForm } from "./pages/ApplyForm";
 import { ContinueApplication } from "./pages/ContinueApplication";
 
+// Route wrapper for articles
 const ArticleRoute = () => {
   const { articleId } = useParams();
   const articlesMap = { article1 };
@@ -46,13 +46,10 @@ const ArticleRoute = () => {
 };
 
 function App() {
-  const location = useLocation();
-
-  
   return (
     <>
       <TopHeaderBar />
-       <MainNavBar />
+      <MainNavBar />
 
       <div className="min-h-screen flex flex-col">
         <main className="flex-grow">
@@ -84,8 +81,6 @@ function App() {
             <Route path="/applypage" element={<ApplyPage />} />
             <Route path="/applyform" element={<ApplyForm />} />
             <Route path="/continueapplication" element={<ContinueApplication />} />
-
-            
           </Routes>
         </main>
       </div>
@@ -95,6 +90,7 @@ function App() {
   );
 }
 
+// Wrap App in HashRouter for deployment
 export default function WrappedApp() {
   return (
     <Router>
